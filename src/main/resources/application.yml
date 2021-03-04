@@ -6,28 +6,28 @@ spring:
     gateway:
       routes:
         - id: people
-          uri: http://localhost:8080/
+          uri: http://${PEOPLE_HOST}:${PEOPLE_PORT}/
           predicates:
             - Path=/api/people/**
           filters:
           - name: AuthPreFilter
         - id: auth
-          uri: http://localhost:8080
+          uri: http://${PEOPLE_HOST}:${PEOPLE_PORT}/
           predicates:
             - Path=/api/authenticate
         - id: user
-          uri: http://localhost:8080/
+          uri: http://${PEOPLE_HOST}:${PEOPLE_PORT}/
           predicates:
             - Path=/api/user/**
           filters:
             - name: AuthPreFilter
         - id: songs
-          uri: http://localhost:9000/
+          uri: http://${SONG_HOST}:${SONG_PORT}/
           predicates:
             - Path=/api/song*/**
           filters:
             - name: AuthPreFilter
         - id: website
-          uri: http://localhost:3001/
+          uri: http://${SITE_HOST}:${SITE_PORT}/
           predicates:
             - Path=/**
