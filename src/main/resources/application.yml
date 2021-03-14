@@ -12,11 +12,11 @@ spring:
           filters:
           - name: AuthPreFilter
         - id: auth
-          uri: http://${PEOPLE_HOST}:${PEOPLE_PORT}/
+          uri: http://${AUTH_HOST}:${AUTH_PORT}/
           predicates:
             - Path=/api/authenticate
         - id: user
-          uri: http://${PEOPLE_HOST}:${PEOPLE_PORT}/
+          uri: http://${AUTH_HOST}:${AUTH_PORT}/
           predicates:
             - Path=/api/user/**
           filters:
