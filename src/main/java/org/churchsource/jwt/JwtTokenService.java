@@ -31,7 +31,7 @@ public class JwtTokenService implements Serializable {
   }
 
   public String getReasonFromToken(String token) {
-    return (String)Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().get(JWT_TOKEN_REASON);
+    return (String)Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token).getBody().get(JWT_TOKEN_REASON);
   }
 
   public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
@@ -40,7 +40,7 @@ public class JwtTokenService implements Serializable {
   }
 
   private Claims getAllClaimsFromToken(String token) {
-    return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+    return Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token).getBody();
   }
 
   public Boolean isTokenExpired(String token) {
