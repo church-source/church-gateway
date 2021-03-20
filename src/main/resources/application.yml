@@ -24,7 +24,7 @@ spring:
         - id: songs
           uri: http://${SONG_HOST}:${SONG_PORT}/
           predicates:
-            - Path=/api/song*/**
+            - Path=/api/churchsongs/**
           filters:
             - name: AuthPreFilter
         - id: sheets
