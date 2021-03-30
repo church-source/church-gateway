@@ -14,11 +14,11 @@ spring:
         - id: auth
           uri: http://${AUTH_HOST}:${AUTH_PORT}/
           predicates:
-            - Path=/api/authenticate
+            - Path=/api/churchauth/authenticate
         - id: user
           uri: http://${AUTH_HOST}:${AUTH_PORT}/
           predicates:
-            - Path=/api/user/**
+            - Path=/api/churchauth/**
           filters:
             - name: AuthPreFilter
         - id: songs
