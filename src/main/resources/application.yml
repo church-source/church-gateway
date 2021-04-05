@@ -4,6 +4,15 @@ server:
 spring:
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PATCH
+              - PUT
       routes:
         - id: people
           uri: http://${PEOPLE_HOST}:${PEOPLE_PORT}/
