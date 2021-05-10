@@ -22,6 +22,12 @@ spring:
             - Path=/api/people/**
           filters:
           - name: AuthPreFilter
+        - id: services
+          uri: http://${SERVICES_HOST}:${SERVICES_PORT}/
+          predicates:
+            - Path=/api/churchservices/**
+          filters:
+            - name: AuthPreFilter
         - id: auth
           uri: http://${AUTH_HOST}:${AUTH_PORT}/
           predicates:
