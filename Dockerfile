@@ -11,4 +11,6 @@ RUN mkdir /app
 
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/church-gateway.jar
 
-ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/church-gateway.jar"]
+ENV JAVA_OPTS="-XX:+UseSerialGC -Xss512k -XX:MaxRAM=72m -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap "
+
+ENTRYPOINT ["sh","-c","java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app/church-gateway.jar"]
