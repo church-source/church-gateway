@@ -35,8 +35,6 @@ public class AuthPreFilter extends AbstractGatewayFilterFactory<AuthPreFilter.Co
 
 	@Override
 	public GatewayFilter apply(Config config) {
-		System.out.println("inside AuthPreFilter.apply method");
-		
 		return (exchange, chain) -> {
 
 			ServerHttpRequest request = exchange.getRequest().mutate().header("scgw-pre-header", Math.random()*10+"").build();

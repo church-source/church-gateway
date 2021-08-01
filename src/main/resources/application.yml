@@ -51,7 +51,7 @@ spring:
           filters:
             - name: AuthPreFilter
         - id: sheets
-          uri: http://${SHEET_HOST}:${SHEET_PORT}/
+          uri: http://${SONG_HOST}:${SONG_PORT}/
           predicates:
             - Path=/gdrive/sheets/**
         - id: website
