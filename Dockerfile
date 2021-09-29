@@ -9,7 +9,7 @@ EXPOSE 9090
 
 RUN mkdir /app
 
-COPY --from=build /home/gradle/src/build/libs/*.jar /app/church-gateway.jar
+COPY --from=build /home/gradle/src/build/libs/church-gateway.jar /app/church-gateway.jar
 
 ENV JAVA_OPTS="-XX:+UseSerialGC -Xss512k -XX:MaxRAM=72m -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap "
 
