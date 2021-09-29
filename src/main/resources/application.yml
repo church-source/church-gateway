@@ -28,6 +28,12 @@ spring:
             - Path=/api/churchservices/**
           filters:
             - name: AuthPreFilter
+        - id: churchmusicteam
+          uri: http://${MUSIC_TEAM_HOST}:${MUSIC_TEAM_PORT}/
+          predicates:
+            - Path=/api/churchmusicteam/**
+          filters:
+            - name: AuthPreFilter
         - id: auth
           uri: http://${AUTH_HOST}:${AUTH_PORT}/
           predicates:
