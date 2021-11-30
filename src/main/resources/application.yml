@@ -56,6 +56,12 @@ spring:
             - Path=/api/church-tg/**
           filters:
             - name: AuthPreFilter
+        - id: churchsongbook
+          uri: http://${CHURCH_SONGBOOK_HOST}:${CHURCH_SONGBOOK_PORT}/
+          predicates:
+            - Path=/api/songbook/**
+          filters:
+            - name: AuthPreFilter
         - id: sheets
           uri: http://${SONG_HOST}:${SONG_PORT}/
           predicates:
